@@ -1,0 +1,8 @@
+{
+  "name": "PayConnect Prototype",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "d8bb1c6a"
+}
