@@ -62,13 +62,15 @@ const Tab1: React.FC = () => {
 
           <div style={{ "display": "flex" }}>
             <IonButton style={{ "color": "white", "--background": "#cc1d31" }} onClick={async () => {
-              if (!(await confirm("Are you sure you want to transfer $" + amount + "to " + recipient + "?"))) return;
+              if (amount > payMeResponse?.balance) return await alert("Buddy, you don't have that much money!")
+              if (!(await confirm("Are you sure you want to transfer $" + amount + " to " + recipient + "?"))) return;
               await sendPayment("user", recipient, "payme", receiveMethod, amount)
               updateData()
               console.log('done')
             }}>PayMe</IonButton>
             <IonButton style={{ "color": "white", "--background": "#2c639e" }} onClick={async () => {
-              if (!(await confirm("Are you sure you want to transfer $" + amount + "to " + recipient + "?"))) return;
+              if (amount > fpsResponse?.balance) return await alert("Buddy, you don't have that much money!")
+              if (!(await confirm("Are you sure you want to transfer $" + amount + " to " + recipient + "?"))) return;
               await sendPayment("user", recipient, "fps", receiveMethod, amount)
               updateData()
               console.log('done')
